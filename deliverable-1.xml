@@ -1,0 +1,45 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
+
+  <id>deliverable-1</id>
+
+  <includeBaseDirectory>false</includeBaseDirectory> <!-- create top-level directory for archive --> 
+  
+  <formats>
+    <format>zip</format>
+    <format>tar</format>
+  </formats>
+  
+  <!--
+   Note: All <outputDirectory/> directives are relative to generated assembly file     
+  -->
+
+  <fileSets>
+    <fileSet>
+      <directory>${basedir}</directory>
+      <outputDirectory>./docs</outputDirectory>
+      <includes>
+        <include>README*.md</include>
+      </includes>
+      <excludes>
+        <exclude>NOTICE.txt</exclude>
+      </excludes>
+    </fileSet>
+    
+    <fileSet>
+      <directory>${basedir}/resources</directory>
+      <outputDirectory>./resources</outputDirectory>
+    </fileSet>
+
+  </fileSets>
+  
+  <files>
+    <file>
+      <source>${basedir}/src/main/java/acme/App.java</source>
+      <outputDirectory>.</outputDirectory> 
+      <filtered>false</filtered>
+    </file>
+  </files>
+
+</assembly>

@@ -1,0 +1,10 @@
+.classpath
+.settings
+.project
+
+release.properties
+
+maven-build.properties
+maven-build.xml
+
+target
