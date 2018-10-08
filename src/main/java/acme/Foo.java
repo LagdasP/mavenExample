@@ -7,7 +7,7 @@ public class Foo
         System.err.println("Hello (Foo) World!");
         
         for (int i = 0; i < args.length; ++i) {
-            System.err.printf(" * arg#%d: %s%n", i, args[i]);
+            System.err.printf(" * Arg #%d: %s%n", i, args[i]);
         }
     }
 }
