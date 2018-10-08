@@ -78,7 +78,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-
+    
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -91,7 +91,38 @@
                     </archive>
                 </configuration>
             </plugin>
-
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>acme.App</mainClass>
+                        </configuration>
+                    </execution>
+                    <!-- example: mvn exec:java@foo -Dfoo.arg-1=Qux -->
+                    <execution>
+                        <id>foo</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>acme.Foo</mainClass>
+                            <arguments>
+                                <argument>Blah Blah</argument>
+                                <argument>${foo.arg-1}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
         </plugins>
     </build>
 </project>
