@@ -23,6 +23,10 @@ Download javadoc for dependencies:
 
     mvn dependency:resolve -Dclassifier=javadoc
 
+Generate documentation (javadoc):
+
+    mvn javadoc:javadoc
+
 Generate Ant build files:
 
     mvn ant:ant
