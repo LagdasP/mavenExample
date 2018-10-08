@@ -7,6 +7,8 @@ release.properties
 maven-build.properties
 maven-build.xml
 
+dependency-reduced-pom.xml
+
 logs/
 
 target/
