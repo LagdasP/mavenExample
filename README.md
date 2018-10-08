@@ -11,22 +11,15 @@ Generate a project skeleton from an archetype (choose from different archetypeAr
 
     mvn archetype:generate -DgroupId=acme -DartifactId=hello-maven -DarchetypeArtifactId=maven-archetype-quickstart
 
-Cleanup and package:
+Package and install locally:
 
-    mvn clean package
-
-Download sources for dependencies:
-
-    mvn dependency:sources
-
-Download javadoc for dependencies:
-
-    mvn dependency:resolve -Dclassifier=javadoc
+    mvn install
 
 Generate documentation (javadoc):
 
     mvn javadoc:javadoc
 
-Generate Ant build files:
+Cleanup (removes target directory):
 
-    mvn ant:ant
+    mvn clean
+
