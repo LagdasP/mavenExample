@@ -7,4 +7,6 @@ release.properties
 maven-build.properties
 maven-build.xml
 
-target
+logs/
+
+target/
