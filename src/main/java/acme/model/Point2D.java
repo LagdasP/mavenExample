@@ -1,5 +1,6 @@
 package acme.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Point2D
@@ -19,6 +20,13 @@ public class Point2D
         this.name = name;
     }
     
+    public Point2D(Point2D other)
+    {
+        this.lon = other.lon;
+        this.lat = other.lat;
+        this.name = other.name;
+    }
+    
     @JsonProperty("longitude")
     public double getLon()
     {
@@ -26,6 +34,7 @@ public class Point2D
     }
     
     @JsonProperty("longitude")
+    @JsonAlias({"x", "lon"})
     public void setLon(double x)
     {
         this.lon = x;
@@ -38,6 +47,7 @@ public class Point2D
     }
     
     @JsonProperty("latitude")
+    @JsonAlias({"y", "lat"})
     public void setLat(double y)
     {
         this.lat = y;

@@ -9,11 +9,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import acme.model.Point2D;
 
-public class Foo
+public class PointReader
 {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
+    private static final Logger logger = LoggerFactory.getLogger(PointReader.class);
     
     public static void main(String[] args) throws IOException
     {
