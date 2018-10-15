@@ -1,13 +1,18 @@
 package acme.model;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Point2D
 {
-    private double lon;
+    private Double lon;
     
-    private double lat;
+    private Double lat;
     
     private String name;
     
@@ -28,32 +33,39 @@ public class Point2D
     }
     
     @JsonProperty("longitude")
-    public double getLon()
+    @NotNull
+    @DecimalMin("-180.0")
+    @DecimalMax("180.0")
+    public Double getLon()
     {
         return lon;
     }
     
     @JsonProperty("longitude")
     @JsonAlias({"x", "lon"})
-    public void setLon(double x)
+    public void setLon(Double x)
     {
         this.lon = x;
     }
     
     @JsonProperty("latitude")
-    public double getLat()
+    @NotNull
+    @DecimalMin("-90.0")
+    @DecimalMax("90.0")
+    public Double getLat()
     {
         return lat;
     }
     
     @JsonProperty("latitude")
     @JsonAlias({"y", "lat"})
-    public void setLat(double y)
+    public void setLat(Double y)
     {
         this.lat = y;
     }
     
     @JsonProperty("name")
+    @NotEmpty
     public String getName()
     {
         return name;

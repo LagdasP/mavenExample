@@ -1,9 +1,16 @@
 package acme.model;
 
+import javax.validation.Valid;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LineSegment2D
-{
+{    
     private Point2D start;
     
     private Point2D end;
@@ -25,6 +32,8 @@ public class LineSegment2D
     }
 
     @JsonProperty("start")
+    @Valid
+    @NotNull
     public Point2D getStart()
     {
         return start;
@@ -37,6 +46,8 @@ public class LineSegment2D
     }
 
     @JsonProperty("end")
+    @Valid
+    @NotNull
     public Point2D getEnd()
     {
         return end;
@@ -49,6 +60,7 @@ public class LineSegment2D
     }
 
     @JsonProperty("name")
+    @NotEmpty
     public String getName()
     {
         return name;
@@ -60,6 +72,18 @@ public class LineSegment2D
         this.name = name;
     }
 
+    @JsonIgnore
+    @DecimalMin("1E-6")
+    public Double getLength()
+    {
+        if (start == null || end == null)
+            return null;
+        
+        double dx = start.getLon() - end.getLon();
+        double dy = start.getLat() - end.getLat();
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+    
     @Override
     public String toString()
     {
