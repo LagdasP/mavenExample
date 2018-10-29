@@ -9,6 +9,5 @@ maven-build.xml
 
 dependency-reduced-pom.xml
 
-logs/
-
-target/
+/target
+/logs
